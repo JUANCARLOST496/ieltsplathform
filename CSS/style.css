@@ -1,0 +1,44 @@
+/**custom propieties **/
+:root{
+  --primario:#eb5a47;
+  --secundario:#ffc107;
+  --fuenteprimaria:'Arial',Helveltica,sans-serif;
+  --fuentesecundaria:'poppins',sans-serif
+}
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body{
+    background-color: var(--primario);
+}
+
+.bg-amarillo{
+  background-color: var(--secundario);
+}
+
+.contenedor{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sombra{
+  -webkit-box-shadow: 10px 3px 39px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 3px 39px -1px rgba(0,0,0,0.75);
+box-shadow: 10px 3px 39px -1px rgba(0,0,0,0.75);
+}
+
+form{
+  padding:3rem;
+  margin-top: 2rem;
+}
+
+form legend{
+  font-family: var(--fuentesecundaria);
+  font-size: 2rem;
+  text-align: center;
+}

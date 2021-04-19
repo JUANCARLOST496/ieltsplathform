@@ -6,9 +6,9 @@
         </div>
 <div class="bg-amarillo contenedor sombra">
          <form id="contacto" action="#">
-           <legend>Add un campo<span> todo los campos son obligatorios</span>
-           </legend>
-           <div class="campos">
+           <div class="anex">Add un campo</br><span> todo los campos son obligatorios</span></div>
+           
+                <div class="campos">
                 
                 
                 

@@ -7,7 +7,7 @@
                         <input type="text" placeholder="Nombre producto" id="nombre">
                         </div>
                         <div class="campo">
-                        <label for='empresa'>Empresa</label>
+                        <label for='Empresa'>Empresa</label>
                         <input type="text" placeholder="Nombre empresa" id="empresa">
                         </div>
                         <div class="campo">

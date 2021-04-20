@@ -65,6 +65,43 @@ form{
 span{
   font-size: 1rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   clear:both;
   display: block;
+}
+
+@media(min-width:768px){
+  .campos{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .campo{
+    flex: 0 0 calc(33.3%-1rem);
+  }
+}
+
+
+.campo{
+  padding:.5rem 0;
+}
+
+.campo label{
+  font-size: 1.5rem;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"]{
+  width:100%;
+  border:none;
+  padding:.5rem;
+  height:2.5rem;
+  margin-top:.1rem;
+
+font-size: 1rem;
+}
+
+.enviar{
+  display: flex;
+  justify-content: flex-end;
 }

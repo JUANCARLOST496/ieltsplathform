@@ -8,32 +8,56 @@
          <form id="contacto" action="#">
            <div class="anex">Add un campo</br><span> todo los campos son obligatorios</span></div>
            
-                <div class="campos">
-                
-                
-                
-                        <div class="campo">
-                        <label for='nombre'>Nombre</label>
-                        <input type="text" placeholder="Nombre producto" id="nombre">
-                        </div>
-                        <div class="campo">
-                        <label for='empresa'>Empresa</label>
-                        <input type="text" placeholder="Nombre empresa" id="empresa">
-                        </div>
-                        <div class="campo">
-                        <label for='telefono'>tel</label>
-                        <input type="tel" placeholder="Nombre contacto" id="telefono">
-                        </div>
-                        <div class="campo-enviar">
-                        <input type="submit" value="añadir">
-                        </div>
-              </div>
+           <?php include 'inc/layout/formulario.php';?>
          </form>
         
 </div>
 
+<div class="bg-blanco contenedor sombra contactos">
+        <div class="contenedor contactos">
+           <h2>contactos</h2>
+           <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos...">
+           <p class="total-contactos"><span>2</span>Contactos<p>
+
+           <div class="contenedor-tabla">
+                   <table class="listado" id="listado-contactos" >
+                           <thead>
+                                   <tr>
+                                   <th>Nombre</th>
+                                   <th>Empresa</th>
+                                   <th>Telefono</th>
+                                   <th>Acciones</th>
+                                   </tr>
+                           </thead>
+                        <tbody>
+                             <tr>
 
 
+                                <td>Juan</td>
+                                <td>Udemy</td>
+                                <td>05123 </td>
+                                <td>
+                                        <a class="boton-editar btn" href="Editar.php?id=1">
+                                        <i class="fas fa-pen-square"></i>
+                                        </a>
+                                        <button data-id="1" type="button" class="btn-borrar btn">
+                                        <i class="fas fa-trash-alt"></i>
+                                        </button>
+
+                                </td>
+
+
+
+                             </tr>
+
+
+                        </tbody>
+                    
+                   
+                   
+                        </table>
+        </div>
+</div>
 
 
 <?php include 'inc/layout/footer.php';?>

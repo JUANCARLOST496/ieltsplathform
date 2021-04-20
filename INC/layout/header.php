@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/243cb116b3.js" crossorigin="anonymous"></script>    
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>

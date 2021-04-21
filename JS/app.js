@@ -15,7 +15,7 @@ function leerform(e){
    console.log(empresa);
    console.log(tel);
    if(nombre==='' || empresa==='' || tel===''){
-    console.log('Esta vacio');
+    mostrarnotificacion('Todos los campos son obligatorios','error');
    }else{
        console.log("no problem");
    }
@@ -23,5 +23,17 @@ function leerform(e){
 
 function mostrarnotificacion(){
     const notificacion=document.createElement('div');
+  
+    notificacion.classList.add('notificacion');
     notificacion.textContent='hubo un error';
+    formulariocontac.insertBefore(notificacion,document.querySelector("form div"));
+
+    setTimeout(() => {
+        notificacion.classList.add('visible');
+        setTimeout(() => {
+            notificacion.classList.remove('visible');
+            notificacion.remove()
+        }, 3000);
+    }, 100);
+
 }

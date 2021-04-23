@@ -19,5 +19,5 @@
                 </div>
 
               <div class="campo enviar">
-                        <input type="submit" value="Agregar">
+                        <input type="submit" id="accion" value="crear">
                         </div>

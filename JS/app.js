@@ -44,10 +44,19 @@ function insertBD(datos){
     //pasar los datos
     xhr.onload=function(){
         if(this.status===200){
-            console.log(xhr.responseText);
+            console.log(JSON.parse( xhr.responseText )) ;
             const respuesta= JSON.parse(xhr.responseText);
             //obtener un dato
             console.log(respuesta.nombre);
+          
+
+            //crear en el dom
+            const textonuevo=document.createElement('tr');
+            textonuevo.innerHTML=`
+              <td>${respuesta.datos.nombre}</td>
+            `;
+
+
         }
     }
     //enviar los datos

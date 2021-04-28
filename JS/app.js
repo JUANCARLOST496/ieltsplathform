@@ -1,4 +1,5 @@
 const formulariocontac=document.querySelector('#contacto');
+const listadoContactos = document.querySelector('#listado-contactos tbody')
 
 eventlisteners();
 
@@ -54,8 +55,11 @@ function insertBD(datos){
             const textonuevo=document.createElement('tr');
             textonuevo.innerHTML=`
               <td>${respuesta.datos.nombre}</td>
+              <td>${respuesta.datos.empresa}</td>
+              <td>${respuesta.datos.telefono}</td>
             `;
-
+             //add
+             listadoContactos.appendChild(textonuevo);
 
         }
     }

@@ -19,7 +19,7 @@
            <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos...">
            <p class="total-contactos"><span>2</span>Contactos<p>
 
-           <div class="contenedor-tabla">
+           <div >
                    <table class="listado" id="listado-contactos" >
                            <thead>
                                    <tr>
@@ -57,6 +57,10 @@
                    
                         </table>
         </div>
+
+        <div class="campo enviar">
+                        <input type="submit" id="accion" value="Facturar">
+                        </div>
 </div>
 
 

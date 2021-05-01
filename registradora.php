@@ -1,13 +1,24 @@
-<?php include 'inc/layout/header.php';?>
+<?php 
+session_start();
+
+if(isset($_SESSION['usuario'])){
+
+include 'inc/layout/header.php';?>
+
 
 <div class="contenedor-barra">
         <h1>Agenda de contactos
         </h1>
+        
         </div>
+                       <div class="campo enviar ref " >
+
+                    <a href="logout.php?logoat" class="navegacion__enlace">cerrar sesion</a>
+                        </div>
 <div class="bg-amarillo contenedor sombra">
          <form id="contacto" action="#">
            <div class="anex">Add un campo</br><span> todo los campos son obligatorios</span></div>
-           
+          
            <?php include 'inc/layout/formulario.php';?>
          </form>
         
@@ -63,5 +74,8 @@
                         </div>
 </div>
 
+<?php include 'inc/layout/footer.php';
 
-<?php include 'inc/layout/footer.php';?>
+}else{
+        header('location:login.php');
+}

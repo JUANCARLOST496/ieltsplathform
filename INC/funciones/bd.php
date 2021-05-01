@@ -7,3 +7,6 @@ define('DB_NOMBRE','negocio');
 
 $conn =new mysqli(DB_HOST,DB_USUARIO,DB_PASSWORD,DB_NOMBRE);
 
+
+
+

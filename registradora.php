@@ -13,7 +13,7 @@ include 'inc/layout/header.php';?>
         </div>
                        <div class="campo enviar ref " >
 
-                    <a href="logout.php?logoat" class="navegacion__enlace">cerrar sesion</a>
+                    <a href="logout.php?logoat" class="navega">cerrar sesion</a>
                         </div>
 <div class="bg-amarillo contenedor sombra">
          <form id="contacto" action="#">

@@ -60,7 +60,9 @@ function insertBD(datos){
             `;
              //add
              listadoContactos.appendChild(textonuevo);
-
+              
+            document.querySelector('form').reset();
+            mostrarnotificacion('Contacto creado','correcto')
         }
     }
     //enviar los datos

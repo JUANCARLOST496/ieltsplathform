@@ -1,18 +1,39 @@
+<?php 
+include 'inc/funciones/bd.php';
+$query=mysqli_query($conn, 'SELECT idproducto , producto, precio from ventas');
+
+?>
+
 <div class="campos">
                 
                 
                 
                         <div class="campo">
-                        <label for='nombre'>Nombre</label>
-                        <input type="text" placeholder="Nombre producto" id="nombre">
+                        <label for='nombre'>PRODUCTO</label>
+                        <select id="nombre">
+                          <?php
+                          while ($datos=mysqli_fetch_array($query))
+                            {
+                           ?>
+                                  <option id='<?php echo $datos['idproducto']?>'><?php echo $datos['producto']?></option>
+                                 
+                                  <?php
+                            }
+                                  ?>
+                                  
+                        </select>
+                        
+                        
+
+                      
                         </div>
                         <div class="campo">
-                        <label for='Empresa'>Empresa</label>
-                        <input type="text" placeholder="Nombre empresa" id="empresa">
+                        <label for='Empresa'>CANTIDAD</label>
+                        <input type="text" placeholder="" id="empresa">
                         </div>
                         <div class="campo">
-                        <label for='telefono'>tel</label>
-                        <input type="tel" placeholder="Nombre contacto" id="telefono">
+                        <label for='telefono'>PRECIO</label>
+                        <input type="text" placeholder="precio" id="telefono">
                         </div>
 
                        

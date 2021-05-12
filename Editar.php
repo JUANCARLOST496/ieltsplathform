@@ -2,7 +2,7 @@
 
 <div class="contenedor-barra">
     <div  class="contenedor barra">
-          <a href="index.php" class="btn volver">volver</a>
+          <a href="../Appnegocio/registradora.php" class="btn volver">volver</a>
           <h1>Editar contacto</h1>
         </div>
      </div>

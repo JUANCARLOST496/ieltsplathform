@@ -1,3 +1,41 @@
+<html>
+   <head>
+      <title>Retrocafe</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+
+
+      
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+      </script>
+   </head>
+
+
+   <nav>
+    <div class="nav-wrapper blue-grey darken-3">
+      <a href="#" class="brand-logo">RetroCafe</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down ">
+        <li><a href="Registradora.php">Registradora</a></li>
+        <li><a href="badges.html">Bodega</a></li>
+        <li><a href="logout.php?logoat" class="navega">Cerrar sesion</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+
+
+
 <?php 
 session_start();
 
@@ -6,18 +44,14 @@ if(isset($_SESSION['usuario'])){
 include 'inc/layout/header.php';?>
 
 
-<div class="contenedor-barra">
-        <h1>Agenda de contactos
-        </h1>
-        
-        </div>
+
                        <div class="campo enviar ref " >
 
-                    <a href="logout.php?logoat" class="navega">cerrar sesion</a>
+                    
                         </div>
-<div class="bg-amarillo contenedor sombra">
+<div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">Add un campo</br><span> todo los campos son obligatorios</span></div>
+           <div class="anex">CAJA REGISTRADORA</br><span> </span></div>
           
            <?php include 'inc/layout/formulario.php';?>
          </form>
@@ -26,40 +60,22 @@ include 'inc/layout/header.php';?>
 
 <div class="bg-blanco contenedor sombra contactos">
         <div class="contenedor contactos">
-           <h2>contactos</h2>
-           <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos...">
-           <p class="total-contactos"><span>2</span>Contactos<p>
+          
 
            <div >
                    <table class="listado" id="listado-contactos" >
                            <thead>
                                    <tr>
-                                   <th>Nombre</th>
-                                   <th>Empresa</th>
-                                   <th>Telefono</th>
+                                   <th>Producto</th>
+                                   <th>Precio</th>
+                                   <th>Cantidad</th>
                                    <th>Acciones</th>
                                    </tr>
                            </thead>
                         <tbody>
-                             <tr>
+                      
+                     
 
-
-                                <td>Juan</td>
-                                <td>Udemy</td>
-                                <td>05123 </td>
-                                <td>
-                                        <a class="boton-editar btn" href="Editar.php?id=1">
-                                        <i class="fas fa-pen-square"></i>
-                                        </a>
-                                        <button data-id="1" type="button" class="btn-borrar btn">
-                                        <i class="fas fa-trash-alt"></i>
-                                        </button>
-
-                                </td>
-
-
-
-                             </tr>
 
 
                         </tbody>
@@ -70,12 +86,14 @@ include 'inc/layout/header.php';?>
         </div>
 
         <div class="campo enviar">
-                        <input type="submit" id="accion" value="Facturar">
+                        <input type="submit" id="accion" value="facturar" onclick="suma();">
                         </div>
 </div>
+
 
 <?php include 'inc/layout/footer.php';
 
 }else{
         header('location:login.php');
-}
+}  ?>
+

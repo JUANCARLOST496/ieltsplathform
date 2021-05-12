@@ -7,12 +7,61 @@ function eventlisteners(){
      formulariocontac.addEventListener('submit',leerform);
 }
 
+function cambioOpciones()
+
+        {
+           let corte=document.getElementById('nombre').value,
+           cortee=corte.split('=')[1]
+
+            document.getElementById('empresa').value=cortee;
+            
+
+        }
+
+        function suma(){
+            let total=0;
+        let celdaselects= document.querySelectorAll('td+td+td+td')
+        for(let i=0;i<celdaselects.length; i++){
+            total +=parseInt(celdaselects[i].firstChild.data);
+        }
+
+        let nuevafila=document.createElement('tr')
+
+        let celdatotal=document.createElement('td');
+        let textecelda=document.createTextNode('total');
+        celdatotal.appendChild(textecelda);
+        nuevafila.appendChild(celdatotal);
+
+
+   
+        let celdatotalnum=document.createElement('td');
+        let texteceldavalor=document.createTextNode(total);
+        celdatotalnum.appendChild(texteceldavalor);
+        nuevafila.appendChild(celdatotalnum);
+
+
+        document.getElementById('listado-contactos').appendChild(nuevafila)
+          }
+
+
+        
+        
+
+        
+
+        
+
 function leerform(e){
     e.preventDefault();
-   const nombre=document.querySelector('#nombre').value,
+   const nombres=document.querySelector('#nombre').value,
+        nombre=nombres.split('=')[0],
          empresa=document.querySelector('#empresa').value,
          tel=document.querySelector('#telefono').value,
-         accion=document.querySelector('#accion').value;
+         accion=document.querySelector('#accion').value,
+         mult=(empresa*tel);
+
+        console.log(mult);
+        console.log(accion);
 
 
    if(nombre==='' || empresa==='' || tel===''){
@@ -21,11 +70,14 @@ function leerform(e){
          }else{
      //crear llamado a ajax
 
+
      const infocontacto=new FormData();
     infocontacto.append('nombre',nombre);
     infocontacto.append('empresa',empresa);
     infocontacto.append('telefono',tel);
     infocontacto.append('accion',accion);
+    infocontacto.append('mult',mult);
+    
     //console.log(...infocontacto)
 
 
@@ -57,6 +109,7 @@ function insertBD(datos){
               <td>${respuesta.datos.nombre}</td>
               <td>${respuesta.datos.empresa}</td>
               <td>${respuesta.datos.telefono}</td>
+              <td>${respuesta.datos.mult}</td>
             `;
              //add
              listadoContactos.appendChild(textonuevo);
@@ -67,6 +120,7 @@ function insertBD(datos){
     }
     //enviar los datos
     xhr.send(datos)
+ 
 }
 
    }
@@ -90,3 +144,20 @@ function mostrarnotificacion(mensaje,clase){
     }, 100);
 
 }
+
+
+function ShowSelected() { /* Para obtener el valor */
+    var cod = document.getElementById("nombre").value;
+    var txt = document.getElementById("prue").value;  
+    /* Para obtener el texto */
+    var combo = document.getElementById("nombre");
+    var selected = combo.options[combo.selectedIndex].value;  
+    if (selected == "kumis") {
+      document.getElementById('lbl').innerText = '10000';
+    } else {
+      document.getElementById('lbl').innerText = '';
+    }
+  }
+
+
+  

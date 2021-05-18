@@ -62,34 +62,34 @@ include 'inc/layout/header.php';?>
         <div class="contenedor contactos">
           
 
-           <div >
-                   <table class="listado" id="listado-contactos" >
+          
+                   <table class="centered listado highlight " id="listado-contactos" >
                            <thead>
                                    <tr>
                                    <th>Producto</th>
-                                   <th>Precio</th>
+                                   <th>Precio Unitario</th>
                                    <th>Cantidad</th>
-                                   <th>Acciones</th>
+                                   <th>precio total</th>
+                                   <th>codigo compra</th>
+                                   <th>eliminar</th>
                                    </tr>
                            </thead>
-                        <tbody>
-                      
-                     
-
-
-
+                        
+                        
+                           <tbody>
                         </tbody>
                     
                    
                    
                         </table>
-        </div>
+       
 
         <div class="campo enviar">
                         <input type="submit" id="accion" value="facturar" onclick="suma();">
                         </div>
-</div>
+       </div>
 
+       </div>
 
 <?php include 'inc/layout/footer.php';
 
@@ -97,3 +97,4 @@ include 'inc/layout/header.php';?>
         header('location:login.php');
 }  ?>
 
+</html>

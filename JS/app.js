@@ -1,6 +1,10 @@
 const formulariocontac=document.querySelector('#contacto');
 const listadoContactos = document.querySelector('#listado-contactos tbody')
 
+
+
+
+
 eventlisteners();
 
 function eventlisteners(){
@@ -11,16 +15,24 @@ function cambioOpciones()
 
         {
            let corte=document.getElementById('nombre').value,
+            
            cortee=corte.split('=')[1]
+           corteee=corte.split('=')[2]
 
-            document.getElementById('empresa').value=cortee;
+            document.getElementById('precio').value=cortee;
+            document.getElementById('idpro').value=corteee;
             
 
         }
 
+
+
+
+
+
         function suma(){
             let total=0;
-        let celdaselects= document.querySelectorAll('td+td+td+td')
+        let celdaselects= document.querySelectorAll('td+td+td')
         for(let i=0;i<celdaselects.length; i++){
             total +=parseInt(celdaselects[i].firstChild.data);
         }
@@ -55,16 +67,17 @@ function leerform(e){
     e.preventDefault();
    const nombres=document.querySelector('#nombre').value,
         nombre=nombres.split('=')[0],
-         empresa=document.querySelector('#empresa').value,
-         tel=document.querySelector('#telefono').value,
+         precio=document.querySelector('#precio').value,
+         cantidad=document.querySelector('#cantidad').value,
+         codigoc=document.querySelector('#codigoc').value,
          accion=document.querySelector('#accion').value,
-         mult=(empresa*tel);
-
+         mult=(precio*cantidad);
+     
         console.log(mult);
-        console.log(accion);
+        
 
 
-   if(nombre==='' || empresa==='' || tel===''){
+   if(nombre==='' || precio==='' || cantidad===''){
     mostrarnotificacion('Todos los campos son obligatorios','error');
 
          }else{
@@ -73,16 +86,17 @@ function leerform(e){
 
      const infocontacto=new FormData();
     infocontacto.append('nombre',nombre);
-    infocontacto.append('empresa',empresa);
-    infocontacto.append('telefono',tel);
+    infocontacto.append('preciox',precio);
+    infocontacto.append('cantidad',cantidad);
     infocontacto.append('accion',accion);
     infocontacto.append('mult',mult);
-    
+   
     //console.log(...infocontacto)
 
 
     if(accion==='crear'){
          insertBD(infocontacto);
+        
     }else{
         console.log("nada")
     }
@@ -107,12 +121,39 @@ function insertBD(datos){
             const textonuevo=document.createElement('tr');
             textonuevo.innerHTML=`
               <td>${respuesta.datos.nombre}</td>
-              <td>${respuesta.datos.empresa}</td>
-              <td>${respuesta.datos.telefono}</td>
+              <td>${respuesta.datos.precio}</td>
+              <td>${respuesta.datos.cantidad}</td>
+              <td>${respuesta.datos.mult}</td>
               <td>${respuesta.datos.mult}</td>
             `;
+
+ // crear contenedor para los botones
+ const contenedorAcciones = document.createElement('td');
+
+
+
              //add
              listadoContactos.appendChild(textonuevo);
+
+// crear el icono de eliminar
+const iconoEliminar = document.createElement('i');
+iconoEliminar.classList.add('fas', 'fa-trash-alt');
+
+// crear el boton de eliminar
+const btnEliminar = document.createElement('button');
+btnEliminar.appendChild(iconoEliminar);
+btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
+btnEliminar.classList.add('btn', 'btn-borrar','waves-effect', 'waves-teal', 'btn-flat');
+
+
+
+// agregarlo al padre
+contenedorAcciones.appendChild(btnEliminar);
+
+// Agregarlo al tr
+textonuevo.appendChild(contenedorAcciones);
+
+             
               
             document.querySelector('form').reset();
             mostrarnotificacion('Contacto creado','correcto')
@@ -146,18 +187,19 @@ function mostrarnotificacion(mensaje,clase){
 }
 
 
-function ShowSelected() { /* Para obtener el valor */
-    var cod = document.getElementById("nombre").value;
-    var txt = document.getElementById("prue").value;  
-    /* Para obtener el texto */
-    var combo = document.getElementById("nombre");
-    var selected = combo.options[combo.selectedIndex].value;  
-    if (selected == "kumis") {
-      document.getElementById('lbl').innerText = '10000';
-    } else {
-      document.getElementById('lbl').innerText = '';
-    }
-  }
+function obtenerfecha(){
+    const d= new Date();
+    const year=d.getFullYear();
+   console.log(year) 
+}
 
 
-  
+
+
+  const  generateRandomString = (num) => {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result1= Math.random().toString(36).substring(0,num);       
+
+    return result1;
+}
+

@@ -82,10 +82,15 @@ span{
   .campos{
     display: flex;
     justify-content: space-between;
+    
   }
   
   .campo{
     flex: 0 0 calc(33.3%-1rem);
+  }
+
+  .bg-blanco{
+    padding: 5rem;
   }
 }
 

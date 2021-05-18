@@ -6,14 +6,14 @@ if($_POST['accion']=='crear'){
     
     //validar entradas
    $nombre=filter_var($_POST['nombre'],FILTER_SANITIZE_STRING);
-   $empresa=filter_var($_POST['empresa'],FILTER_SANITIZE_STRING);
-   $telefono=filter_var($_POST['telefono'],FILTER_SANITIZE_STRING);
+   $precio=filter_var($_POST['preciox'],FILTER_SANITIZE_STRING);
+   $cantidad=filter_var($_POST['cantidad'],FILTER_SANITIZE_STRING);
    $mult=filter_var($_POST['mult'],FILTER_SANITIZE_STRING);
 
    try{
     $statement =$conn->prepare("INSERT INTO agenda (nombre,empresa,telefono,total_productos) VALUES (?,?,?,?)");
     
-    $statement->bind_param("ssss",$nombre,$empresa,$telefono,$mult);
+    $statement->bind_param("ssss",$nombre,$precio,$cantidad,$mult);
     $statement->execute();
 
     if($statement->affected_rows==1){
@@ -21,8 +21,8 @@ if($_POST['accion']=='crear'){
           'respuesta'=>'correcto',
           'datos'=> array(
                'nombre'=>$nombre,
-               'empresa'=>$empresa,
-               'telefono'=>$telefono,
+               'precio'=>$precio,
+               'cantidad'=>$cantidad,
                'mult'=>$mult,
                'id'=>$statement->insert_id
           )

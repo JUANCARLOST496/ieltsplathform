@@ -13,7 +13,7 @@ define('DB_NOMBRE','negocio');
 $conn =new mysqli(DB_HOST,DB_USUARIO,DB_PASSWORD,DB_NOMBRE);
 
 
-$consulta="SELECT*FROM usuarios where usuarioU='$usuario'and passwordE='$contrasena'";
+$consulta="SELECT*FROM usuarios where usuario='$usuario'and passwordE='$contrasena'";
 $resultado=mysqli_query($conn,$consulta);
 
 $filas=mysqli_num_rows($resultado);
@@ -26,7 +26,7 @@ if($filas){
 }else{
     ?>
     <?php
-    include("login.php");
+    include("index.php");
 
   ?>
   <h1 class="bad">ERROR DE AUTENTIFICACION</h1>

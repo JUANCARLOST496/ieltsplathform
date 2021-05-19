@@ -10,12 +10,12 @@ if($_POST['accion']=='crear'){
    $cantidad=filter_var($_POST['cantidad'],FILTER_SANITIZE_STRING);
    $mult=filter_var($_POST['mult'],FILTER_SANITIZE_STRING);
    $idpro=filter_var($_POST['idpro'],FILTER_SANITIZE_STRING);
-
+   $codigoc=filter_var($_POST['codigoc'],FILTER_SANITIZE_STRING);
 
    try{
-    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total) VALUES (?,?,?,?,?)");
+    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total,codigo_factura) VALUES (?,?,?,?,?,?)");
     
-    $statement->bind_param("sssss",$nombre,$idpro,$precio,$cantidad,$mult);
+    $statement->bind_param("ssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc);
     $statement->execute();
 
     if($statement->affected_rows==1){
@@ -26,6 +26,7 @@ if($_POST['accion']=='crear'){
                'precio'=>$precio,
                'cantidad'=>$cantidad,
                'mult'=>$mult,
+               'codc'=>$codigoc,
                'id'=>$statement->insert_id
           )
           );

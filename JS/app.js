@@ -71,7 +71,12 @@ function leerform(e){
          cantidad=document.querySelector('#cantidad').value,
          codigoc=document.querySelector('#codigoc').value,
          accion=document.querySelector('#accion').value,
+         idpro=document.querySelector('#idpro').value,
          mult=(precio*cantidad);
+
+         let d=date();
+         let fecha=d.getFullYear();
+         
      
         console.log(mult);
         
@@ -89,7 +94,9 @@ function leerform(e){
     infocontacto.append('preciox',precio);
     infocontacto.append('cantidad',cantidad);
     infocontacto.append('accion',accion);
+    infocontacto.append('idpro',idpro);
     infocontacto.append('mult',mult);
+
    
     //console.log(...infocontacto)
 
@@ -124,7 +131,7 @@ function insertBD(datos){
               <td>${respuesta.datos.precio}</td>
               <td>${respuesta.datos.cantidad}</td>
               <td>${respuesta.datos.mult}</td>
-              <td>${respuesta.datos.mult}</td>
+              </td>
             `;
 
  // crear contenedor para los botones

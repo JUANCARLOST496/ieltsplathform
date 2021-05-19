@@ -9,11 +9,13 @@ if($_POST['accion']=='crear'){
    $precio=filter_var($_POST['preciox'],FILTER_SANITIZE_STRING);
    $cantidad=filter_var($_POST['cantidad'],FILTER_SANITIZE_STRING);
    $mult=filter_var($_POST['mult'],FILTER_SANITIZE_STRING);
+   $idpro=filter_var($_POST['idpro'],FILTER_SANITIZE_STRING);
+
 
    try{
-    $statement =$conn->prepare("INSERT INTO agenda (nombre,empresa,telefono,total_productos) VALUES (?,?,?,?)");
+    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total) VALUES (?,?,?,?,?)");
     
-    $statement->bind_param("ssss",$nombre,$precio,$cantidad,$mult);
+    $statement->bind_param("sssss",$nombre,$idpro,$precio,$cantidad,$mult);
     $statement->execute();
 
     if($statement->affected_rows==1){

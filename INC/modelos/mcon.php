@@ -18,6 +18,8 @@ if($_POST['accion']=='crear'){
     $statement->bind_param("ssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc);
     $statement->execute();
 
+    
+
     if($statement->affected_rows==1){
      $respuesta = array(
           'respuesta'=>'correcto',
@@ -27,7 +29,7 @@ if($_POST['accion']=='crear'){
                'cantidad'=>$cantidad,
                'mult'=>$mult,
                'codc'=>$codigoc,
-               'id'=>$statement->insert_id
+               'id_insertado'=>$statement->insert_id
           )
           );
     }
@@ -47,3 +49,5 @@ if($_POST['accion']=='crear'){
      echo json_encode($respuesta);
    
 }
+
+

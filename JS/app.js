@@ -8,7 +8,12 @@ const listadoContactos = document.querySelector('#listado-contactos tbody')
 eventlisteners();
 
 function eventlisteners(){
+    //creA4ar o editar
      formulariocontac.addEventListener('submit',leerform);
+
+     //eliminar
+     listadoContactos.addEventListener('click',eliminarproducto);
+     listadoContactos.addEventListener('click',sumar);
 }
 
 function cambioOpciones()
@@ -134,7 +139,7 @@ function insertBD(datos){
               <td>${respuesta.datos.cantidad}</td>
               <td>${respuesta.datos.mult}</td>
               <td>${respuesta.datos.codc}</td>
-              </td>
+              </tr>
             `;
 
  // crear contenedor para los botones
@@ -176,6 +181,40 @@ textonuevo.appendChild(contenedorAcciones);
 
    }
 }
+
+
+function sumar(e){
+    console.log('disteclick');
+}
+
+
+function eliminarproducto(e){
+         if(e.target.parentElement.classList.contains('btn-borrar')){
+             //tomar id
+             const id=e.target.parentElement.getAttribute('data-id');
+           console.log(id)
+
+             
+             const respuesta = confirm('¿Estás Seguro (a) ?');
+             if(respuesta) {
+             //ABRIR CONEXION
+             const xhr=new XMLHttpRequest();
+             xhr.open('GET',`inc/modelos/mcon2.php?id=${id}&accion=borrar`, true);
+             xhr.onload=function(){
+                 if(this.status === 200){
+                     const resultados=JSON.parse(xhr.responseText);
+                     console.log(resultados);
+                 }
+             }
+
+             xhr.send();
+         }
+      }
+} 
+
+
+
+
 
 function mostrarnotificacion(mensaje,clase){
     const notificacion=document.createElement('div');

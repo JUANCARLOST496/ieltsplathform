@@ -79,8 +79,4 @@ if(isset($_POST['este'])){
                         </div>
 
                         <input typte="text" id="idpro" name="prodId" value="">
-                        <input type="datetime" name="fecha"  value="<?php date_default_timezone_set("America/Bogota");
-                         echo date("Y/m/d");?>">
-
-                        <input type="datetime" name="fecha"  value="<?php date_default_timezone_set("America/Bogota");
-                         echo date("H:i");?>">
+          

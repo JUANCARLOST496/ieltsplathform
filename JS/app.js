@@ -194,16 +194,24 @@ function eliminarproducto(e){
              const id=e.target.parentElement.getAttribute('data-id');
            console.log(id)
 
+            let a=1
              
-             const respuesta = confirm('¿Estás Seguro (a) ?');
-             if(respuesta) {
+             if(a=1) {
              //ABRIR CONEXION
              const xhr=new XMLHttpRequest();
              xhr.open('GET',`inc/modelos/mcon2.php?id=${id}&accion=borrar`, true);
              xhr.onload=function(){
                  if(this.status === 200){
                      const resultados=JSON.parse(xhr.responseText);
-                     console.log(resultados);
+                        console.log(e.target.parentElement.parentElement.parentElement.remove());
+
+                     if(resultados.respuesta=='correcto'){
+                       
+
+                        mostrarnotificacion("contacto eliminado",'correcto')
+                     }else{
+                         mostrarnotificacion("hubo un error",'error')
+                     }
                  }
              }
 
@@ -229,8 +237,8 @@ function mostrarnotificacion(mensaje,clase){
             notificacion.classList.remove('visible');
             setTimeout(() => {
                 notificacion.remove();
-            }, 300);
-        }, 3000);
+            }, 100);
+        }, 1000);
     }, 100);
 
 }

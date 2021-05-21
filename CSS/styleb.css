@@ -92,6 +92,13 @@ span{
   .bg-blanco{
     padding: 5rem;
   }
+
+  .contactos{
+    padding:2rem;
+    margin-top:3rem;
+  
+  }
+
 }
 
 
@@ -157,14 +164,14 @@ font-size: 1rem;
 }
 
 .contactos{
-  padding:2rem;
+  padding:1rem;
   margin-top:3rem;
 
 }
 
 .contenedor-contactos{
   max-width: 800px;
-  margin: 4rem auto 0 auto;
+  margin: 3rem auto 0 auto;
 }
 .buscador{
   width:100%;
@@ -177,7 +184,7 @@ font-size: 1rem;
 .listado{
   width:100%;
   margin-top:1rem;
-  border-collapse: collapse;
+  
 }
 
 .listado thead{
@@ -188,11 +195,11 @@ font-size: 1rem;
 }
 
 .listado thead th{
- padding: 1rem 0;
+ padding: 1rem;
 }
 
 .listado tbody td{
-  padding: .5rem;
+  padding: 1rem;
  }
 
  .listado button{
@@ -240,6 +247,11 @@ font-size: 1rem;
   padding:1rem 3rem;
   opacity:0;
   transition:opacity .5s ease;
+}
+
+.total{
+  margin-left: 5rem;
+  padding:1rem 3rem;
 }
 
 .visible{

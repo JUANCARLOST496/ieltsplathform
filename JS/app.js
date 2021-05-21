@@ -87,7 +87,7 @@ function leerform(e){
          let dia=d.getDate();
 
      
-      let fechaventa= dia+"-"+mes+"-"+year;
+        console.log(dia+"-"+mes+"-"+year);
         
 
 
@@ -106,8 +106,6 @@ function leerform(e){
     infocontacto.append('idpro',idpro);
     infocontacto.append('mult',mult);
     infocontacto.append('codigoc',codigoc);
-    infocontacto.append('fechaventa',fechaventa);
-
    
     //console.log(...infocontacto)
 
@@ -193,14 +191,30 @@ textonuevo.appendChild(contenedorAcciones);
 
 function sumar(e){
    if(e.target.parentElement.classList.contains('btn-borrar')){
-   let codigoc=document.querySelector('#codigoc').value
+   const codigoc=document.querySelector('#codigoc').value
    
     console.log(codigoc)
+
+    const resp=confirm("Recuerde ver el valor");
    
-    let a=1
+    
              
-    if(a=1) {
+    if(resp) {
     //ABRIR CONEXION
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',`inc/modelos/mcon3.php?id=${codigoc}&accion=sumar`, true);
+    xhr.onload=function(){
+        if(this.status === 200){
+            const resultados=JSON.parse(xhr.responseText);
+               console.log(resultados);
+               document.getElementById('prueba').innerHTML= `${resultados.suma}`;
+
+         
+        }
+    }
+
+    xhr.send();
+}else{
     const xhr=new XMLHttpRequest();
     xhr.open('GET',`inc/modelos/mcon3.php?id=${codigoc}&accion=sumar`, true);
     xhr.onload=function(){
@@ -230,9 +244,9 @@ function eliminarproducto(e){
              const id=e.target.parentElement.getAttribute('data-id');
            console.log(id)
 
-            let a=1
+            const res=confirm("seguro");
              
-             if(a=1) {
+             if(res) {
              //ABRIR CONEXION
              const xhr=new XMLHttpRequest();
              xhr.open('GET',`inc/modelos/mcon2.php?id=${id}&accion=borrar`, true);

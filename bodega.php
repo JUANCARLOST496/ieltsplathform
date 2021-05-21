@@ -26,7 +26,7 @@
       <a href="#" class="brand-logo">RetroCafe</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down ">
         <li><a href="Registradora.php">Registradora</a></li>
-        <li><a href="bodega.php">Bodega</a></li>
+        <li><a href="badges.html">Bodega</a></li>
         <li><a href="logout.php?logoat" class="navega">Cerrar sesion</a></li>
         
       </ul>
@@ -51,7 +51,7 @@ include 'inc/layout/header.php';?>
                         </div>
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">CAJA REGISTRADORA</br><span> </span></div>
+           <div class="anex">BODEGA</br><span> </span></div>
           
            <?php include 'inc/layout/formulario.php';?>
          </form>
@@ -63,7 +63,7 @@ include 'inc/layout/header.php';?>
           
 
           
-                   <table class="centered listado highlight responsive-table " id="listado-contactos" >
+                   <table class="centered listado highlight " id="listado-contactos" >
                            <thead>
                                    <tr>
                                    <th>Producto</th>
@@ -77,13 +77,6 @@ include 'inc/layout/header.php';?>
                          
                            <tbody>
                            <tr>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                          </tr>
                            
                         </tbody>
                                 
@@ -92,21 +85,11 @@ include 'inc/layout/header.php';?>
                         </table>
        
 
-
-
         <div class="campo enviar">
-        <div class="total">
-       <label > Total: </label>
-       <label for="" id="prueba">  0  </label>
-           
-</div>
-
+           <label for="" id="prueba"></label>
                         <input type="submit" id="40" value="facturar" class="sumar">
                         </div>
        </div>
-       
-
-       
 
        </div>
 

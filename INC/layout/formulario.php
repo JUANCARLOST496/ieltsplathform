@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/stylel.css">
 <?php 
 include 'inc/funciones/bd.php';
-
+$query=mysqli_query($conn, 'SELECT id_producto , producto, precio from productos ORDER BY producto ASC');
 if(isset($_POST['este'])){
   $este=$datos['precio'];
   echo $este;

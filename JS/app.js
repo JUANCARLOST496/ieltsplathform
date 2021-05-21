@@ -1,6 +1,6 @@
 const formulariocontac=document.querySelector('#contacto');
 const listadoContactos = document.querySelector('#listado-contactos tbody')
-
+const espaciosuma=document.querySelector('#blank')
 
 
 
@@ -13,7 +13,9 @@ function eventlisteners(){
 
      //eliminar
      listadoContactos.addEventListener('click',eliminarproducto);
-     listadoContactos.addEventListener('click',sumar);
+
+     espaciosuma.addEventListener('click',sumar)
+     
 }
 
 function cambioOpciones()
@@ -184,7 +186,34 @@ textonuevo.appendChild(contenedorAcciones);
 
 
 function sumar(e){
-    console.log('disteclick');
+   if(e.target.parentElement.classList.contains('btn-borrar')){
+   let codigoc=document.querySelector('#codigoc').value
+   
+    console.log(codigoc)
+   
+    let a=1
+             
+    if(a=1) {
+    //ABRIR CONEXION
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',`inc/modelos/mcon3.php?id=${codigoc}&accion=sumar`, true);
+    xhr.onload=function(){
+        if(this.status === 200){
+            const resultados=JSON.parse(xhr.responseText);
+               console.log(resultados);
+
+         
+        }
+    }
+
+    xhr.send();
+}
+
+
+
+
+   };
+   
 }
 
 
@@ -203,6 +232,7 @@ function eliminarproducto(e){
              xhr.onload=function(){
                  if(this.status === 200){
                      const resultados=JSON.parse(xhr.responseText);
+                     console.log(resultados);
                         console.log(e.target.parentElement.parentElement.parentElement.remove());
 
                      if(resultados.respuesta=='correcto'){

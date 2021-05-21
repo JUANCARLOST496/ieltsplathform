@@ -59,7 +59,7 @@ include 'inc/layout/header.php';?>
 </div>
 
 <div class="bg-blanco contenedor sombra contactos">
-        <div class="contenedor contactos">
+        <div class="contenedor contactos" id="blank">
           
 
           
@@ -92,7 +92,7 @@ include 'inc/layout/header.php';?>
        
 
         <div class="campo enviar">
-                        <input type="submit" id="accion" value="facturar" onclick="suma();">
+                        <input type="submit" id="40" value="facturar" class="sumar">
                         </div>
        </div>
 

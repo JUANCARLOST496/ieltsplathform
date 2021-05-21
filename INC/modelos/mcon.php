@@ -18,6 +18,14 @@ if($_POST['accion']=='crear'){
     $statement->bind_param("ssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc);
     $statement->execute();
 
+    $consulta="SELECT SUM(precio_total) as suma from ventas where codigo_factura='$codigoc'";
+      
+    $query=mysqli_query($conn,$consulta);
+    
+    $data=mysqli_fetch_array($query);
+  
+
+    $suma=$data['suma'];
     
 
     if($statement->affected_rows==1){
@@ -29,6 +37,7 @@ if($_POST['accion']=='crear'){
                'cantidad'=>$cantidad,
                'mult'=>$mult,
                'codc'=>$codigoc,
+               'suma'=>$suma,
                'id_insertado'=>$statement->insert_id
           )
           );

@@ -13,7 +13,7 @@ if($_POST['accion']=='crear'){
    $codigoc=filter_var($_POST['codigoc'],FILTER_SANITIZE_STRING);
 
    try{
-    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total,codigo_factura) VALUES (?,?,?,?,?,?)");
+    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total,codigo_factura,fecha,hora) VALUES (?,?,?,?,?,?,NOW(),CURRENT_TIME())");
     
     $statement->bind_param("ssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc);
     $statement->execute();

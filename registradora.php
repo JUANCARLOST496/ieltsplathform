@@ -86,6 +86,7 @@ include 'inc/layout/header.php';?>
        
 
         <div class="campo enviar">
+           <label for="" id="prueba"></label>
                         <input type="submit" id="40" value="facturar" class="sumar">
                         </div>
        </div>

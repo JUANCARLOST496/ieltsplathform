@@ -87,7 +87,7 @@ function leerform(e){
          let dia=d.getDate();
 
      
-        console.log(dia+"-"+mes+"-"+year);
+      let fechaventa= dia+"-"+mes+"-"+year;
         
 
 
@@ -106,6 +106,8 @@ function leerform(e){
     infocontacto.append('idpro',idpro);
     infocontacto.append('mult',mult);
     infocontacto.append('codigoc',codigoc);
+    infocontacto.append('fechaventa',fechaventa);
+
    
     //console.log(...infocontacto)
 
@@ -142,7 +144,11 @@ function insertBD(datos){
               <td>${respuesta.datos.mult}</td>
               <td>${respuesta.datos.codc}</td>
               </tr>
+              
             `;
+
+            document.getElementById('prueba').innerHTML= `${respuesta.datos.suma}`;
+
 
  // crear contenedor para los botones
  const contenedorAcciones = document.createElement('td');
@@ -201,6 +207,7 @@ function sumar(e){
         if(this.status === 200){
             const resultados=JSON.parse(xhr.responseText);
                console.log(resultados);
+               document.getElementById('prueba').innerHTML= `${resultados.suma}`;
 
          
         }

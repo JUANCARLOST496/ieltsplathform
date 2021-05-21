@@ -78,5 +78,5 @@ if(isset($_POST['este'])){
                         <button  id="accion" value="crear" class="btn-floating btn-large waves-effect  blue-grey darken-3" onclick='obtenerfecha();'> <i class="material-icons">add</i></button>
                         </div>
 
-                        <input typte="text" id="idpro" name="prodId" value="">
-          
+                        <input type="hidden"  id="idpro" name="prodId" value="">
+                   

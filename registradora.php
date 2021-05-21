@@ -77,13 +77,7 @@ include 'inc/layout/header.php';?>
                          
                            <tbody>
                            <tr>
-                           <td>mantqeuilla</td>
-                           <td>5000</td>
-                           <td>3</td>
-                           <td>15000</td>
-                           <td>qresf454</td>
-                           <td><button data-id="50" class="btn btn-borrar waves-effect waves-teal btn-flat"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></td>
-                           </tr>
+                           
                         </tbody>
                                 
                    

@@ -7,27 +7,26 @@ if($_GET['accion'] =='borrar'){
 
        try{
 
-          $consulta="SELECT SUM(precio_total) as suma from ventas where codigo_factura='$id'";
-            
-          $query=mysqli_query($conn,$consulta);
-          
-          $datos=mysqli_fetch_array($query);
         
-    
-          $suma=$datos['suma'];
 
-            $stmt=$conn->prepare("DELETE FROM ventas WHERE id = ? ");
+            $stmt=$conn->prepare("DELETE FROM productos WHERE id_producto = ? ");
             $stmt->bind_param("i",$id);
             $stmt->execute();
            
             
            
+     
+
+
            
+      
+
+
 
             if($stmt->affected_rows==1){
                  $respuesta=array(
                       'respuesta'=>'correcto',
-                       'suma'=>$suma
+                
                  );
             }
 

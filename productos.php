@@ -21,7 +21,6 @@
    </head>
 
 
-   
 
 
 
@@ -31,7 +30,10 @@ session_start();
 
 if(isset($_SESSION['usuario'])){
   
-include 'inc/layout/header.php';?>
+
+include_once 'inc/layout/header.php';
+
+?>
 
 
 
@@ -41,9 +43,9 @@ include 'inc/layout/header.php';?>
                         </div>
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">CAJA REGISTRADORA</br><span> </span></div>
+           <div class="anex">Productos</br><span> </span></div>
           
-           <?php include 'inc/layout/formulario.php';?>
+           <?php include_once 'inc/layout/formulario_productos.php';?>
          </form>
         
 </div>
@@ -56,26 +58,29 @@ include 'inc/layout/header.php';?>
                    <table class="centered listado highlight responsive-table " id="listado-contactos" >
                            <thead>
                                    <tr>
+                                   <th>id_producto</th>
                                    <th>Producto</th>
-                                   <th>Precio Unitario</th>
-                                   <th>Cantidad</th>
-                                   <th>precio total</th>
-                                   <th>codigo compra</th>
-                                   <th>eliminar</th>
+                                   <th>Precio </th>
+                                   <th>Eliminar </th>
                                    </tr>
                            </thead>
                          
                            <tbody>
-                              
+                           <?php include 'inc/funciones/funciones.php';
+                           $producto=obtenercontactos();
+                          
+
+                           if($producto->num_rows){
+                              foreach($producto as $product){?>
+                        
                            <tr>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
+                           <td><?php echo $product['id_producto']; ?></td>
+                           <td><?php echo $product['producto']; ?></td>
+                           <td><?php echo $product['precio']; ?></td>
+                            <td><button data-id="<?php echo $product['id_producto']    ?>" class="btn btn-borrar waves-effect waves-teal btn-flat"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></td>
                           </tr>
-                           
+                           <?php }
+                           }?>
                         </tbody>
                                 
                    
@@ -85,23 +90,16 @@ include 'inc/layout/header.php';?>
 
 
 
-        <div class="campo enviar">
-        <div class="total">
-       <label > Total: </label>
-       <label for="" id="prueba">  0  </label>
+       
            
-</div>
 
-                        <input type="submit" id="40" value="facturar" class="sumar">
-                        </div>
-       </div>
        
 
        
 
        </div>
 
-<?php include 'inc/layout/footer.php';
+<?php include 'inc/layout/footerp.php';
 
 }else{
         header('location:login.php');

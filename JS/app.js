@@ -81,13 +81,7 @@ function leerform(e){
          idpro=document.querySelector('#idpro').value,
          mult=(precio*cantidad);
 
-         var d = new Date();
-         let year=d.getFullYear();
-         let mes=d.getMonth()+1;
-         let dia=d.getDate();
-
-     
-        console.log(dia+"-"+mes+"-"+year);
+    
         
 
 
@@ -107,7 +101,7 @@ function leerform(e){
     infocontacto.append('mult',mult);
     infocontacto.append('codigoc',codigoc);
    
-    //console.log(...infocontacto)
+    console.log(...infocontacto)
 
 
     if(accion==='crear'){

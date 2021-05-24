@@ -21,18 +21,7 @@
    </head>
 
 
-   <nav>
-    <div class="nav-wrapper blue-grey darken-3">
-      <a href="#" class="brand-logo">RetroCafe</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down ">
-        <li><a href="Registradora.php">Registradora</a></li>
-        <li><a href="badges.html">Bodega</a></li>
-        <li><a href="logout.php?logoat" class="navega">Cerrar sesion</a></li>
-        
-      </ul>
-    </div>
-  </nav>
-
+   
 
 
 
@@ -41,7 +30,7 @@ session_start();
 
 if(isset($_SESSION['usuario'])){
 
-include 'inc/layout/header.php';?>
+include_once 'inc/layout/header.php';?>
 
 
 

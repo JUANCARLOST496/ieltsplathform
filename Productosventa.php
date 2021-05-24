@@ -41,9 +41,9 @@ include 'inc/layout/header.php';?>
                         </div>
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">CAJA REGISTRADORA</br><span> </span></div>
+           <div class="anex">PRODUCTO A LA VENTA</br><span> </span></div>
           
-           <?php include 'inc/layout/formulario.php';?>
+           <?php include 'inc/layout/formulario_productos.php';?>
          </form>
         
 </div>
@@ -57,10 +57,8 @@ include 'inc/layout/header.php';?>
                            <thead>
                                    <tr>
                                    <th>Producto</th>
-                                   <th>Precio Unitario</th>
-                                   <th>Cantidad</th>
-                                   <th>precio total</th>
-                                   <th>codigo compra</th>
+                                   <th>id_producto</th>
+                                   <th>precio</th>
                                    <th>eliminar</th>
                                    </tr>
                            </thead>

@@ -15,3 +15,16 @@
 <link rel="stylesheet" href="css/styleb.css">
 </head>
 <body>
+    
+   <nav>
+    <div class="nav-wrapper blue-grey darken-3">
+      <a href="#" class="brand-logo">RetroCafe</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down ">
+      <li><a href="login_productos.php">Productos</a></li>
+        <li><a href="Registradora.php">Registradora</a></li>
+        <li><a href="bodega.php">Bodega</a></li>
+        <li><a href="logout.php?logoat" class="navega">Cerrar sesion</a></li>
+        
+      </ul>
+    </div>
+  </nav>

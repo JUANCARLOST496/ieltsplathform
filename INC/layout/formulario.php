@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/stylel.css">
 <?php 
-include 'inc/funciones/bd.php';
+include_once 'inc/funciones/bd.php';
 $query=mysqli_query($conn, 'SELECT id_producto , producto, precio from productos ORDER BY producto ASC');
 if(isset($_POST['este'])){
   $este=$datos['precio'];
@@ -75,7 +75,7 @@ if(isset($_POST['este'])){
                 </div>
                 
                 <div class="campo enviar">
-                        <button  id="accion" value="crear" class="btn-floating btn-large waves-effect  blue-grey darken-3" onclick='obtenerfecha();'> <i class="material-icons">add</i></button>
+                        <button  id="accion" value="crear" class="btn-floating btn-large waves-effect  blue-grey darken-3"> <i class="material-icons">add</i></button>
                         </div>
 
                         <input type="hidden"  id="idpro" name="prodId" value="">

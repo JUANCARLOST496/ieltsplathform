@@ -4,7 +4,6 @@ const espaciosuma=document.querySelector('#blank')
 
 
 
-
 eventlisteners();
 
 function eventlisteners(){

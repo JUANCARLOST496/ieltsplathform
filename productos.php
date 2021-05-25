@@ -77,7 +77,7 @@ include_once 'inc/layout/header.php';
                            <td><?php echo $product['id_producto']; ?></td>
                            <td><?php echo $product['producto']; ?></td>
                            <td><?php echo $product['precio']; ?></td>
-                            <td><button data-id="<?php echo $product['id_producto']    ?>" class="btn btn-borrar waves-effect waves-teal btn-flat"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></td>
+                            <td><button data-id="<?php echo $product['id']    ?>" class="btn btn-borrar waves-effect waves-teal btn-flat"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></td>
                           </tr>
                            <?php }
                            }?>

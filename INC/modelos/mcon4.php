@@ -9,7 +9,7 @@ if($_GET['accion'] =='borrar'){
 
         
 
-            $stmt=$conn->prepare("DELETE FROM productos WHERE id_producto = ? ");
+            $stmt=$conn->prepare("DELETE FROM productos WHERE id = ? ");
             $stmt->bind_param("i",$id);
             $stmt->execute();
            

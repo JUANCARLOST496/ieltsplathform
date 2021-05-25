@@ -89,7 +89,7 @@ iconoEliminar.classList.add('fas', 'fa-trash-alt');
 // crear el boton de eliminar
 const btnEliminar = document.createElement('button');
 btnEliminar.appendChild(iconoEliminar);
-btnEliminar.setAttribute('data-id', respuesta.datos.id_producto);
+btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
 btnEliminar.classList.add('btn', 'btn-borrar','waves-effect', 'waves-teal', 'btn-flat');
 
 

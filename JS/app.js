@@ -4,6 +4,8 @@ const espaciosuma=document.querySelector('#blank')
 
 
 
+         
+
 eventlisteners();
 
 function eventlisteners(){
@@ -137,9 +139,12 @@ function insertBD(datos){
               </tr>
               
             `;
+           let suma= `${respuesta.datos.suma}`
+           
+console.log(suma)
 
-            document.getElementById('prueba').innerHTML= `${respuesta.datos.suma}`;
-
+            var vals = document.getElementById("prueba")
+            vals.value=suma
 
  // crear contenedor para los botones
  const contenedorAcciones = document.createElement('td');
@@ -170,7 +175,7 @@ textonuevo.appendChild(contenedorAcciones);
              
               
             document.querySelector('form').reset();
-            mostrarnotificacion('Contacto creado','correcto')
+            mostrarnotificacion('Articulo sumado','correcto')
         }
     }
     //enviar los datos
@@ -200,8 +205,14 @@ function sumar(e){
         if(this.status === 200){
             const resultados=JSON.parse(xhr.responseText);
                console.log(resultados);
-               document.getElementById('prueba').innerHTML= `${resultados.suma}`;
-
+              
+              
+               let suma= `${resultados.suma}`
+           
+               console.log(suma)
+               
+                           var vals = document.getElementById("prueba")
+                           vals.value=suma
          
         }
     }
@@ -215,7 +226,7 @@ function sumar(e){
             const resultados=JSON.parse(xhr.responseText);
                console.log(resultados);
                document.getElementById('prueba').innerHTML= `${resultados.suma}`;
-
+            
          
         }
     }
@@ -248,11 +259,14 @@ function eliminarproducto(e){
                      const resultados=JSON.parse(xhr.responseText);
                      console.log(resultados);
                         console.log(e.target.parentElement.parentElement.parentElement.remove());
-
+                    
                      if(resultados.respuesta=='correcto'){
                        
-
-                        mostrarnotificacion("contacto eliminado",'correcto')
+           
+                     
+                                    
+                      
+                        mostrarnotificacion("eliminado",'correcto')
                      }else{
                          mostrarnotificacion("hubo un error",'error')
                      }

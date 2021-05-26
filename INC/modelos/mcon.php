@@ -11,11 +11,15 @@ if($_POST['accion']=='crear'){
    $mult=filter_var($_POST['mult'],FILTER_SANITIZE_STRING);
    $idpro=filter_var($_POST['idpro'],FILTER_SANITIZE_STRING);
    $codigoc=filter_var($_POST['codigoc'],FILTER_SANITIZE_STRING);
+   date_default_timezone_set('America/bogota');
+    $fecha=date("Y-m-d");
+    $hora=date('H:i:s');
+
 
    try{
-    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total,codigo_factura,fecha,hora) VALUES (?,?,?,?,?,?,NOW(),CURRENT_TIME())");
+    $statement =$conn->prepare("INSERT INTO ventas (producto,id_producto,precio_unitario,cantidad,precio_total,codigo_factura,fecha,hora) VALUES (?,?,?,?,?,?,?,?)");
     
-    $statement->bind_param("ssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc);
+    $statement->bind_param("ssssssss",$nombre,$idpro,$precio,$cantidad,$mult,$codigoc,$fecha,$hora);
     $statement->execute();
 
     $consulta="SELECT SUM(precio_total) as suma from ventas where codigo_factura='$codigoc'";

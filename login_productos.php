@@ -12,11 +12,11 @@
 <body>
 
 <?php include 'inc/layout/header.php';?>
-<div class="row">
-<div class="col s12 l4 offset-l4">
-             <form class="card" action="supervalidar.php" method="POST">
+<div class="row ">
+<div class="col s12 m6 offset-10 ">
+             <form class="card col s12 m6 " action="supervalidar.php" method="POST">
                         <div class="card-action blue-grey darken-3 white-text center-align">
-                              <h3>Administradores</h3>
+                              <h3>Administracion</h3>
                         </div>
                         <div class="card-content">
                           <div class="form-field">

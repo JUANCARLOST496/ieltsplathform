@@ -1,6 +1,6 @@
 <html>
    <head>
-      <title>Retrocafe</title>
+      <title>BarraCafe</title>
       <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
       <link rel = "stylesheet"
          href = "https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -21,7 +21,6 @@
    </head>
 
 
-   
 
 
 
@@ -31,52 +30,61 @@ session_start();
 
 if(isset($_SESSION['usuario'])){
   
-include 'inc/layout/header.php';?>
+
+include_once 'inc/layout/header.php';
+
+?>
 
 
-
-                       <div class="campo enviar ref " >
-
-                    
-                        </div>
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">CAJA REGISTRADORA</br><span> </span></div>
-          
-           <?php include 'inc/layout/formulario.php';?>
+           <div class="anex">PEDIDOS</br><span> </span></div>
+         
+           
          </form>
         
 </div>
 
-<div class="bg-blanco contenedor sombra contactos" >
-<form id="blank" style="margin: 0px 0px 0px 0px;;">
+                      
+<div class="bg-blanco contenedor sombra contactos">
         <div class="contenedor contactos" id="blank">
           
 
-         
+          
                    <table class="centered listado highlight responsive-table " id="listado-contactos" >
                            <thead>
                                    <tr>
+                                   <th>Codigo Factura </th>
                                    <th>Producto</th>
-                                   <th>Precio Unitario</th>
                                    <th>Cantidad</th>
-                                   <th>precio total</th>
-                                   <th>codigo compra</th>
-                                   <th>eliminar</th>
+                                    <th>Precio U </th>
+                                   <th>Precio Total </th>
+                                   <th>Fecha </th>
+                                   <th>Hora </th>
+                                   
                                    </tr>
                            </thead>
                          
                            <tbody>
-                              
+                           <?php include 'inc/funciones/funciones_pedido.php';
+                           $producto=obtenercontactos();
+                          
+
+                           if($producto->num_rows){
+                              foreach($producto as $product){?>
+                        
                            <tr>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                           <td>___</td>
-                          </tr>
+                           <td><?php echo $product['codigo_factura']; ?></td>
+                           <td><?php echo $product['producto']; ?></td>
+                           <td><?php echo $product['cantidad']; ?></td>
+                           <td><?php echo $product['precio_unitario']; ?></td>
+                           <td><?php echo $product['precio_total']; ?></td>
+                           <td><?php echo $product['fecha']; ?></td>
+                           <td><?php echo $product['hora']; ?></td>
                            
+                          </tr>
+                           <?php }
+                           }?>
                         </tbody>
                                 
                    
@@ -86,30 +94,19 @@ include 'inc/layout/header.php';?>
 
 
 
-        <div class="campo enviar">
-        <div class="total">
-       <label > Total: </label>
-        
-       <input type="text" id="prueba" value="0" disabled>  
+       
+           
 
        
-</div>
-                        <div>
-                        <input type="submit" id="enviarf" value="FACTURAR" class="sumar" onClick="redirect()">
-                        <script src="js/app3.js"></script>
-<div>
-                        </div>
-       </div>
+
        
-     
-       
-       </form>
+
        </div>
-    
-<?php include 'inc/layout/footer.php';
+
+<?php include 'inc/layout/footerp.php';
 
 }else{
-        header('location:index.php');
+        header('location:login.php');
 }  ?>
 
 </html>

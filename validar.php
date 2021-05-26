@@ -20,8 +20,6 @@ $filas=mysqli_num_rows($resultado);
 
 if($filas){
   
-  
-    header("location:editar.php");
     header("location:registradora.php");
 }else{
     ?>

@@ -17,7 +17,7 @@ if(isset($_POST['este'])){
                         <div class="campo center">
                         <label for='nombre'>Producto</label>
                         <select id="nombre" name='este' onchange='cambioOpciones();'>
-                          <option  value=''></option>
+                          <option  value='' class="center col s12 m6 l3"></option>
                           <?php
                           while ($datos=mysqli_fetch_array($query))
                             {
@@ -45,8 +45,8 @@ if(isset($_POST['este'])){
                         <div class="campo center">
                           
                         <label for='cantidad'>Cantidad</label>
-                        <select id="cantidad" name='este' onchange='cambioOpciones();'>
-                                  <option  value=''></option>
+                        <select id="cantidad" name='este' onchange='cambioOpciones();' >
+                                  <option  value='' class="center col s12 m6 l3"></option>
                                       <?php
                                       for ($i = 1; $i <= 50; $i++) 
                                               {
@@ -79,4 +79,5 @@ if(isset($_POST['este'])){
                         </div>
 
                         <input type="hidden"  id="idpro" name="prodId" value="">
-                   
+                        
+                        

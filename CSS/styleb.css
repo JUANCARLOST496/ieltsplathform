@@ -30,6 +30,10 @@ body{
   
 }
 
+.nav-item{
+  color:black;
+}
+
 .sombra{
   -webkit-box-shadow: 10px 3px 39px -1px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 3px 39px -1px rgba(0,0,0,0.75);

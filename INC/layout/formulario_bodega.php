@@ -15,7 +15,7 @@ if(isset($_POST['este'])){
                 
                 
                         <div class="campo center">
-                        <label for='nombre'>Producto</label>
+                        <label for='productobodega'>Producto para Bodega</label>
                    <input type='text' class="card-panel grey lighten-4" id="producto">
                         
                       
@@ -23,7 +23,7 @@ if(isset($_POST['este'])){
 
                           
                         <div class="campo center">
-                        <label for='precio'>id_producto</label>
+                        <label for='id_producto'>id_producto</label>
 
                         <input class="center col s12 m6 l3 card-panel grey lighten-4" type="text"  id="id_producto" value=''>
                                                     
@@ -33,10 +33,17 @@ if(isset($_POST['este'])){
                       
                         
                         <div class="campo center">
-                        <label for='telefono'>Precio</label>
-                        <input class="center col s12 m6 l3 card-panel grey lighten-4" type="text"  id="precio" value=''>
-                        
-                        </div>
+                          
+                          <label for='cantidad'>Cantidad</label>
+                          <select id="cantidad" name='este' onchange='cambioOpciones();' >
+                                    <option  value='' class="center col s12 m6 l3"></option>
+                                           <option value="Unidad"> Unidades </option>
+                                          <option value="Mililitros"> Mililitros </option>
+                                          <option value="Litros"> Litros </option>
+                                          <option value="Gramos"> Gramos </option>
+                                         
+                                          </select>
+                          </div>
                         
                         
 

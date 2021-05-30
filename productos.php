@@ -43,7 +43,7 @@ include_once 'inc/layout/header.php';
                         </div>
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">Productos</br><span> </span></div>
+           <div class="anex">Productos a la venta</br><span> </span></div>
           
            <?php include_once 'inc/layout/formulario_productos.php';?>
          </form>

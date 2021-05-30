@@ -60,12 +60,13 @@ include_once 'inc/layout/header.php';
                                    <tr>
                                    <th>id_producto</th>
                                    <th>Producto</th>
+                                   <th>unidad medida</th>
                                    <th>Eliminar </th>
                                    </tr>
                            </thead>
                          
                            <tbody>
-                           <?php include 'inc/funciones/funciones.php';
+                           <?php include 'inc/funciones/funcionesbp.php';
                            $producto=obtenercontactos();
                           
 
@@ -74,8 +75,8 @@ include_once 'inc/layout/header.php';
                         
                            <tr>
                            <td><?php echo $product['id_producto']; ?></td>
-                           <td><?php echo $product['producto']; ?></td>
-                           <td><?php echo $product['precio']; ?></td>
+                           <td><?php echo $product['producto_b']; ?></td>
+                           <td><?php echo $product['unidades_de_medida']; ?></td>
                             <td><button data-id="<?php echo $product['id']    ?>" class="btn btn-borrar waves-effect waves-teal btn-flat"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></td>
                           </tr>
                            <?php }
@@ -98,7 +99,7 @@ include_once 'inc/layout/header.php';
 
        </div>
 
-<?php include 'inc/layout/footerp.php';
+<?php include 'inc/layout/footerpb.php';
 
 }else{
         header('location:login.php');

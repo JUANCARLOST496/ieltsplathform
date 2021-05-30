@@ -28,7 +28,7 @@
 <?php 
 session_start();
 
-if(isset($_SESSION['usuario'])){
+if(isset($_SESSION['usuarioa'])){
   
 
 include_once 'inc/layout/header.php';
@@ -38,7 +38,7 @@ include_once 'inc/layout/header.php';
 
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">
-           <div class="anex">MENU PRINCIPAL</br><span> </span></div>
+           <div class="anex">MENU ADMINISTRACION</br><span> </span></div>
          
            
          </form>
@@ -50,26 +50,34 @@ include_once 'inc/layout/header.php';
         <div class="contenedor contactos" id="blank">
          
 <div class="row">
-<button onclick="location.href='registradora.php'" class="waves-effect waves-light btn-large col s12 m4 l8  ">Caja Registradora</button>
+<button onclick="location.href='productosb.php'" class="waves-effect waves-light btn-large col s12 m4 l8  pink lighten-2 ">crear producto bodega</button>
 
 </div>
        
 <div class="row">
-<button onclick="location.href='pedidos.php'" class="waves-effect waves-light btn-large col s1">Pedidos</button>   
+<button onclick="location.href='productos.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">crear producto venta</button>   
 </div>
+
 <div class="row">
-        <button onclick="location.href='facturas.php'" class="waves-effect waves-light btn-large col s1">Facturacion</button>      
+<button onclick="location.href='inventario.php.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">Inventario estatico</button>   
+</div>
+
+
+
+
+<div class="row">
+        <button onclick="location.href=''" class="waves-effect waves-light btn-large col s1 pink lighten-2">bodega</button>      
        
         </div>
-
         <div class="row">
-        <button onclick="location.href='login_adm.php'" class="waves-effect waves-light btn-large col s1">Administracion</button>      
+        <button onclick="location.href=''" class="waves-effect waves-light btn-large col s1 pink lighten-2">ventas</button>      
        
         </div>
       
+      
        
 
-       </div>
+   
 
 <?php include 'inc/layout/footerp.php';
 

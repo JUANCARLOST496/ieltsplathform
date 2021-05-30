@@ -20,7 +20,7 @@ $filas=mysqli_num_rows($resultado);
 
 if($filas){
   
-    header("location:registradora.php");
+    header("location:menup.php");
 }else{
     ?>
     <?php

@@ -3,7 +3,7 @@
 $usuario=$_POST['usuario'];
 $contrasena=$_POST['passwordx'];
 session_start();
-$_SESSION['usuario']=$usuario;
+$_SESSION['usuarioa']=$usuario;
 
 define('DB_USUARIO','root');
 define('DB_PASSWORD','work55.55T');
@@ -22,11 +22,11 @@ if($filas){
   
   
    
-    header("location:productos.php");
+    header("location:menu_adm.php");
 }else{
     ?>
     <?php
-    include("index.php");
+    include("menup.php");
 
   ?>
   

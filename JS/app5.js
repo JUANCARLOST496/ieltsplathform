@@ -26,10 +26,9 @@ function cambioOpciones()
             
            cortee=corte.split('=')[1]
            corteee=corte.split('=')[2]
-           document.getElementById('idp').value=corteee;
-            document.getElementById('precio').value=cortee;
-           console.log(corteee)
-           console.log(cortee)
+         
+        document.getElementById('medida').value=cortee;
+          
 
         }
 
@@ -75,18 +74,22 @@ function leerform(e){
     e.preventDefault();
    const nombres=document.querySelector('#nombre').value,
         nombre=nombres.split('=')[0],
-         precio=document.querySelector('#precio').value,
+        medida=document.querySelector('#medida').value,
+         preciou=document.querySelector('#preciou').value,
+         preciofac=document.querySelector('#preciofac').value,
          cantidad=document.querySelector('#cantidad').value,
-         codigoc=document.querySelector('#codigoc').value,
+         existencias=document.querySelector('#existencias').value,
          accion=document.querySelector('#accion').value,
-         idpro=document.querySelector('#idpro').value,
-         mult=(precio*cantidad);
+         idpro=nombres.split('=')[2],
+         mult=(preciou*cantidad);
+
+         console.log(cantidad)
 
     
         
+console.log(idpro)
 
-
-   if(nombre==='' || precio==='' || cantidad===''){
+   if(nombre==='' || cantidad===''){
     mostrarnotificacion('Todos los campos son obligatorios','error');
 
          }else{
@@ -95,13 +98,14 @@ function leerform(e){
 
      const infocontacto=new FormData();
     infocontacto.append('nombre',nombre);
-    infocontacto.append('preciox',precio);
+    infocontacto.append('preciou',preciou);
+    infocontacto.append('preciofac',preciofac);
     infocontacto.append('cantidad',cantidad);
     infocontacto.append('accion',accion);
     infocontacto.append('idpro',idpro);
     infocontacto.append('mult',mult);
-    infocontacto.append('codigoc',codigoc);
-   
+    infocontacto.append('medida',medida);
+    infocontacto.append('existencias',existencias);
     console.log(...infocontacto)
 
 
@@ -118,28 +122,28 @@ function insertBD(datos){
     //crear el objeto
     const xhr= new XMLHttpRequest();
     //abrir la conexion
-     xhr.open('POST','inc/modelos/mcon.php',true)
+     xhr.open('POST','inc/modelos/mcon7.php',true)
     //pasar los datos
     xhr.onload=function(){
         if(this.status===200){
             console.log(JSON.parse( xhr.responseText )) ;
             const respuesta= JSON.parse(xhr.responseText);
             //obtener un dato
-            console.log(respuesta.nombre);
+            console.log(respuesta);
           
 
             //crear en el dom
             const textonuevo=document.createElement('tr');
             textonuevo.innerHTML=`
               <td>${respuesta.datos.nombre}</td>
-              <td>${respuesta.datos.precio}</td>
+              <td>${respuesta.datos.preciou}</td>
               <td>${respuesta.datos.cantidad}</td>
               <td>${respuesta.datos.mult}</td>
               <td>${respuesta.datos.codc}</td>
               </tr>
               
             `;
-           let suma= `${respuesta.datos.suma}`
+          
            
 console.log(suma)
 

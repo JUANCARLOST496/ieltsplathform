@@ -1,6 +1,6 @@
 const formulariocontac=document.querySelector('#contacto');
 const listadoContactos = document.querySelector('#listado-contactos tbody')
-const espaciosuma=document.querySelector('#blank')
+
 
 
 
@@ -15,7 +15,7 @@ function eventlisteners(){
      //eliminar
      listadoContactos.addEventListener('click',eliminarproducto);
 
-     espaciosuma.addEventListener('click',sumar)
+    
      
 }
 
@@ -37,30 +37,9 @@ function cambioOpciones()
 
 
 
-        function suma(){
-            let total=0;
-        let celdaselects= document.querySelectorAll('td+td+td')
-        for(let i=0;i<celdaselects.length; i++){
-            total +=parseInt(celdaselects[i].firstChild.data);
-        }
+        
 
-        let nuevafila=document.createElement('tr')
-
-        let celdatotal=document.createElement('td');
-        let textecelda=document.createTextNode('total');
-        celdatotal.appendChild(textecelda);
-        nuevafila.appendChild(celdatotal);
-
-
-   
-        let celdatotalnum=document.createElement('td');
-        let texteceldavalor=document.createTextNode(total);
-        celdatotalnum.appendChild(texteceldavalor);
-        nuevafila.appendChild(celdatotalnum);
-
-
-        document.getElementById('listado-contactos').appendChild(nuevafila)
-          }
+     
 
 
         
@@ -83,7 +62,7 @@ function leerform(e){
          idpro=nombres.split('=')[2],
          mult=(preciou*cantidad);
 
-         console.log(cantidad)
+         console.log(idpro)
 
     
         
@@ -135,50 +114,29 @@ function insertBD(datos){
             //crear en el dom
             const textonuevo=document.createElement('tr');
             textonuevo.innerHTML=`
+           <td>${respuesta.datos.idpro}</td>
               <td>${respuesta.datos.nombre}</td>
-              <td>${respuesta.datos.preciou}</td>
               <td>${respuesta.datos.cantidad}</td>
+              <td>${respuesta.datos.medida}</td>
+              <td>${respuesta.datos.preciou}</td>
               <td>${respuesta.datos.mult}</td>
-              <td>${respuesta.datos.codc}</td>
+              <td>${respuesta.datos.preciofac}</td>
+              <td>${respuesta.datos.existencias}</td>
+              <td>${respuesta.datos.fecha}</td>
+              <td>${respuesta.datos.hora}</td>
               </tr>
               
             `;
           
            
-console.log(suma)
-
-            var vals = document.getElementById("prueba")
-            vals.value=suma
-
- // crear contenedor para los botones
- const contenedorAcciones = document.createElement('td');
 
 
+            
 
-             //add
-             listadoContactos.appendChild(textonuevo);
-
-// crear el icono de eliminar
-const iconoEliminar = document.createElement('i');
-iconoEliminar.classList.add('fas', 'fa-trash-alt');
-
-// crear el boton de eliminar
-const btnEliminar = document.createElement('button');
-btnEliminar.appendChild(iconoEliminar);
-btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
-btnEliminar.classList.add('btn', 'btn-borrar','waves-effect', 'waves-teal', 'btn-flat');
-
-
-
-// agregarlo al padre
-contenedorAcciones.appendChild(btnEliminar);
-
-// Agregarlo al tr
-textonuevo.appendChild(contenedorAcciones);
-
-             
+ 
+             document.querySelector('form').reset();
               
-            document.querySelector('form').reset();
+            
             mostrarnotificacion('Articulo sumado','correcto')
         }
     }
@@ -191,96 +149,13 @@ textonuevo.appendChild(contenedorAcciones);
 }
 
 
-function sumar(e){
-   if(e.target.parentElement.classList.contains('btn-borrar')){
-   const codigoc=document.querySelector('#codigoc').value
+
+
+
+
+
    
-    console.log(codigoc)
 
-    const resp=confirm("Recuerde ver el valor");
-   
-    
-             
-    if(resp) {
-    //ABRIR CONEXION
-    const xhr=new XMLHttpRequest();
-    xhr.open('GET',`inc/modelos/mcon3.php?id=${codigoc}&accion=sumar`, true);
-    xhr.onload=function(){
-        if(this.status === 200){
-            const resultados=JSON.parse(xhr.responseText);
-               console.log(resultados);
-              
-              
-               let suma= `${resultados.suma}`
-           
-               console.log(suma)
-               
-                           var vals = document.getElementById("prueba")
-                           vals.value=suma
-         
-        }
-    }
-
-    xhr.send();
-}else{
-    const xhr=new XMLHttpRequest();
-    xhr.open('GET',`inc/modelos/mcon3.php?id=${codigoc}&accion=sumar`, true);
-    xhr.onload=function(){
-        if(this.status === 200){
-            const resultados=JSON.parse(xhr.responseText);
-               console.log(resultados);
-               document.getElementById('prueba').innerHTML= `${resultados.suma}`;
-            
-         
-        }
-    }
-
-    xhr.send();
-}
-
-
-
-
-   };
-   
-}
-
-
-function eliminarproducto(e){
-         if(e.target.parentElement.classList.contains('btn-borrar')){
-             //tomar id
-             const id=e.target.parentElement.getAttribute('data-id');
-           console.log(id)
-
-            const res=confirm("seguro");
-             
-             if(res) {
-             //ABRIR CONEXION
-             const xhr=new XMLHttpRequest();
-             xhr.open('GET',`inc/modelos/mcon2.php?id=${id}&accion=borrar`, true);
-             xhr.onload=function(){
-                 if(this.status === 200){
-                     const resultados=JSON.parse(xhr.responseText);
-                     console.log(resultados);
-                        console.log(e.target.parentElement.parentElement.parentElement.remove());
-                    
-                     if(resultados.respuesta=='correcto'){
-                       
-           
-                     
-                                    
-                      
-                        mostrarnotificacion("eliminado",'correcto')
-                     }else{
-                         mostrarnotificacion("hubo un error",'error')
-                     }
-                 }
-             }
-
-             xhr.send();
-         }
-      }
-} 
 
 
 
@@ -315,10 +190,4 @@ function obtenerfecha(){
 
 
 
-  const  generateRandomString = (num) => {
-    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result1= Math.random().toString(36).substring(0,num);       
-
-    return result1;
-}
 

@@ -26,7 +26,7 @@ function cambioOpciones()
             
            cortee=corte.split('=')[1]
            corteee=corte.split('=')[2]
-           document.getElementById('idp').value=corteee;
+           document.getElementById('idpro').value=corteee;
             document.getElementById('precio').value=cortee;
            console.log(corteee)
            console.log(cortee)

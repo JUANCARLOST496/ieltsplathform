@@ -6,9 +6,9 @@ session_start();
 $_SESSION['usuario']=$usuario;
 
 define('DB_USUARIO','root');
-define('DB_PASSWORD','work55.55T');
+define('DB_PASSWORD','');
 define('DB_HOST','localhost');
-define('DB_NOMBRE','negocio');
+define('DB_NOMBRE','test');
 
 $conn =new mysqli(DB_HOST,DB_USUARIO,DB_PASSWORD,DB_NOMBRE);
 

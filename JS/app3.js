@@ -8,14 +8,7 @@ function eventlisteners(){
 }
 
 
-function redirect()
-{
-    setTimeout(() => {
-        window.location.href = 'facturas.php';
-    }, 1000);
-        
-   
-}
+
 
 
 
@@ -35,18 +28,28 @@ function leerforma(e){
    infoenv.append('codigoc',codigoc);
    infoenv.append('valorv',valorv);
    infoenv.append('cantidadp',cantidadp);
-
-
+   console.log(enviarf)
+   
    if(enviarf==='facturar'){
     insertBD(infoenv);
     console.log("sies")
-    
+    function redirect()
+    {
+        setTimeout(() => {
+            window.location.href = 'facturas.php';
+        }, 1000);
+            
+       
+    }
 
+    redirect();
    
 }else{
    console.log("nada")
 }
 
+
+    
 
 function insertBD(dato){
 //llamado a ajax
@@ -71,6 +74,6 @@ xhr.onload=function(){
 }
 
 xhr.send(dato);
-redirect()
+
 }
 }

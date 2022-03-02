@@ -35,6 +35,33 @@ include_once 'inc/layout/header.php';
 
 ?>
 
+<div class="bg-blanco contenedor sombra contactos">
+        <div class="contenedor contactos" id="blank">
+         
+<div class="row">
+<button onclick="location.href='registradora.php'" class="waves-effect waves-light btn-large col s12 m4 l8  pink lighten-2">Caja Registradora</button>
+
+</div>
+       
+<div class="row">
+<button onclick="location.href='pedidos.php'" class="waves-effect waves-light btn-large col s1 green lighten-2">Pedidos</button>   
+</div>
+<div class="row">
+        <button onclick="location.href='facturas.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">Facturacion</button>      
+       
+        </div>
+
+        <div class="row">
+        <button onclick="location.href='login_adm.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">Administracion</button>      
+       
+        </div>
+      
+       
+
+       </div>
+       </div>
+
+
 
 <div class="bg-blanco contenedor sombra">
          <form id="contacto" action="#">

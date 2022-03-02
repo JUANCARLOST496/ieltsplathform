@@ -35,7 +35,38 @@ include_once 'inc/layout/header.php';
 
 ?>
 
+<div class="bg-blanco contenedor sombra contactos">
+        <div class="contenedor contactos" id="blank">
+        
+<div class="row">
+<button onclick="location.href='productosb.php'" class="waves-effect waves-light btn-large col s12 m4 l8  green lighten-2 ">crear producto del invetario</button>
 
+</div>
+       
+<div class="row">
+<button onclick="location.href='productos.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">crear producto venta</button>   
+</div>
+
+<div class="row">
+<button onclick="location.href='invt.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">Registrar entrada al Inventario</button>   
+</div>
+
+
+
+
+<div class="row">
+        <button onclick="location.href='inventario.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">inventario</button>      
+       
+        </div>
+        <div class="row">
+        <button onclick="location.href='ventas.php'" class="waves-effect waves-light btn-large col s1 pink lighten-2">ventas</button>      
+       
+        </div>
+      
+      
+       
+</div>
+</div>
 
                        <div class="campo enviar ref " >
 

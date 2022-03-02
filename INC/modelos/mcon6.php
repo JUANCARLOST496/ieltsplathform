@@ -9,18 +9,10 @@ if($_GET['accion'] =='borrar'){
 
         
 
-            $stmt=$conn->prepare("DELETE FROM productos_ibodega WHERE id = ? ");
+            $stmt=$conn->prepare("DELETE FROM inventario WHERE id = ? ");
             $stmt->bind_param("i",$id);
             $stmt->execute();
-           
-            
-           
      
-
-
-           
-      
-
 
 
             if($stmt->affected_rows==1){

@@ -95,7 +95,7 @@ include 'inc/layout/header.php';?>
        
 </div>
                         <div>
-                        <input type="submit" id="enviarf" value="FACTURAR" class="sumar" onClick="redirect()">
+                        <input type="submit" id="enviarf" value="facturar" class="sumar">
                         <script src="js/app3.js"></script>
 <div>
                         </div>
